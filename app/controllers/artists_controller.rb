@@ -13,19 +13,6 @@ class ArtistsController < ApplicationController
     redirect_to artists_path
   end
 
-  # def new
-  #   @artist = Artist.new
-  # end
-  #
-  # def create
-  #   @artist = Artist.create(artist_params)
-  #
-  #   if @artist.save
-  #     redirect_to @artist, notice "Artist successfully created"
-  #   else
-  #     render :new
-  #   end
-  # end
 
   private
     def set_artist

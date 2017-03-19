@@ -5,10 +5,7 @@
  %></li>
 <% end %>
 </ul>
-
+<hr>
 <div>
-  <%= render '/shared/formsong' %>
-  <% @artist.errors.each do |attr, msg| %>
-  <%= "#{attr} #{msg}" if @user.errors[attr].first == msg %>
-  <% end %>
+  <%= render 'formsong' %>
 </div>
