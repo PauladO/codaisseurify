@@ -1,0 +1,12 @@
+<%= form_for [@artist, @artist.songs.new] do |f| %>
+  <p><strong>Add a new song</strong>
+    <label>Song title:</label>
+    <%= f.text_field :name %>
+  </div>
+
+  <hr>
+
+  <div class="actions">
+    <%= f.submit "add song", class: "btn btn-success" %>
+  </div>
+<% end %>
