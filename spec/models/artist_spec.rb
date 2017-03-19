@@ -11,4 +11,24 @@ RSpec.describe Artist, type: :model do
       expect(artist.songs).to include(song2)
     end
   end
+
+  describe "validations" do
+    it "is invalid without artist name" do
+      artist = Artist.new(name: "")
+      artist.valid?
+      expect(artist.errors).to have_key(:name)
+    end
+
+    it "is invalid without a name longer than 50 characters" do
+      artist = Artist.new(name: "a" *51)
+      artist.valid?
+      expect(artist.errors).to have_key(:name)
+    end
+
+    it "is invalid without an image" do
+      artist = Artist.new(image: "")
+      artist.valid?
+      expect(artist.errors).to have_key(:image)
+    end
+  end
 end
