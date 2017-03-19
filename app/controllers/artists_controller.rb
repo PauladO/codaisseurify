@@ -1,21 +1,37 @@
 class ArtistsController < ApplicationController
+  before_action :set_artist, only: [:show, :destroy]
+
   def index
     @artists = Artist.all
   end
 
   def show
-    @artist = Artist.find(params[:id])
   end
 
-  def new
-    @artist = Artist.new
+  def destroy
+    @artist.destroy
+    redirect_to artists_path
   end
 
-  def create
-
-  end
+  # def new
+  #   @artist = Artist.new
+  # end
+  #
+  # def create
+  #   @artist = Artist.create(artist_params)
+  #
+  #   if @artist.save
+  #     redirect_to @artist, notice "Artist successfully created"
+  #   else
+  #     render :new
+  #   end
+  # end
 
   private
+    def set_artist
+      @artist = Artist.find(params[:id])
+    end
+
     def artist_params
       require.params(:artist).permit(:name, :image)
     end
